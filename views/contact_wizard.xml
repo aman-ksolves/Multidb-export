@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="multi_db_wizard_form_view" model="ir.ui.view">
+            <field name="name">multi_db_wizard.form</field>
+            <field name="model">contact.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <div invisible="not is_connection">
+                                <h1>Now You can Export Contact</h1>
+                            </div>
+                            <group>
+                                <field name="is_connection" invisible="1"/>
+                                <field name="show" invisible="1"/>
+                                <field name="db_name" invisible="is_connection"/>
+                                <field name="db_user" invisible="is_connection"/>
+                                <field name="db_pass" password="True" invisible="is_connection"/>
+                                <field name="db_host" invisible="is_connection"/>
+                                <field name="db_port" invisible="is_connection"/>
+                            </group>
+                        </group>
+                        <footer>
+                            <button string="Test Connection n Confirm" type="object" name="test_connection" class="oe_highlight" invisible="not show" />
+                            <button string="Cancel" class="oe_link" name="action_cancel"/>
+                            <button string="Export Contact" type="object" name="export_data" class="oe_highlight" invisible="not is_connection" />
+<!--                            <button string="Change" type="object" name="action_check"  />-->
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+         <record id="multi_db_wizard_form_view_ex" model="ir.ui.view">
+            <field name="name">multi_db_wizard.form</field>
+            <field name="model">contact.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+
+                            <group>
+                                <field name="is_connection"/>
+<!--                                <field name="db_name"/>-->
+<!--                                <field name="db_user"/>-->
+<!--                                <field name="db_pass" password="True"/>-->
+<!--                                <field name="db_host"/>-->
+<!--                                <field name="db_port"/>-->
+                            </group>
+                        </group>
+                        <footer>
+<!--                            <button string="Test Connection" type="object" name="test_connection" class="oe_highlight"/>-->
+                            <button string="Cancel" class="oe_link" name="action_cancel"/>
+                            <button string="Export Contact" type="object" name="export_data" class="oe_highlight" />
+<!--                            <button string="Change" type="object" name="action_check"  />-->
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
